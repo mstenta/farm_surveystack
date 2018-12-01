@@ -73,5 +73,21 @@ function farm_oursci_process_data($data) {
   }
 
   // Create a quantity log.
-  farm_quantity_log_create($type, $name, $timestamp, $done, $assets, $measurements);
+  $log = farm_quantity_log_create($type, $name, $timestamp, $done, $assets, $measurements);
+
+  // Create an entity metadata wrapper for the log.
+  $log_wrapper = entity_metadata_wrapper('log', $log);
+
+  // If latitude and longitude are provided, add them to the geofield.
+  if (!empty($data['location']['lat']) && !empty($data['location']['lon'])) {
+    $lon = $data['location']['lon'];
+    $lat = $data['location']['lat'];
+    $wkt = 'POINT(' . $lon . ' ' . $lat . ')';
+    $log_wrapper->field_farm_geofield[] = array(
+      'geom' => $wkt,
+    );
+  }
+
+  // Save the log (again).
+  $log_wrapper->save();
 }

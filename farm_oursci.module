@@ -43,14 +43,35 @@ function farm_oursci_api_callback() {
  */
 function farm_oursci_process_data($data) {
 
-  // Create a log and dump the JSON into the body.
+  // Set the timestamp.
+  $timestamp = REQUEST_TIME;
+  if (!empty($data['timestamp'])) {
+    $timestamp = $data['timestamp'];
+  }
+
+  // We will create an observation log.
   $type = 'farm_observation';
-  $name = 'Test Our Sci Observation';
-  $log = farm_quantity_log_create($type, $name);
-  $log_wrapper = entity_metadata_wrapper('log', $log);
-  $log_wrapper->field_farm_notes = array(
-    'value' => drupal_json_encode($data),
-    'format' => 'farm_format',
-  );
-  $log_wrapper->save();
+
+  // Give it a name.
+  $name = 'Our Sci Observation';
+  if (!empty($data['title'])) {
+    $name = $data['title'];
+  }
+
+  // Mark the log as done.
+  $done = TRUE;
+
+  // Don't reference any assets.
+  $assets = array();
+
+  // Assemble quantity measurements.
+  $measurements = array();
+  if (!empty($data['quantities'])) {
+    foreach ($data['quantities'] as $qty) {
+      $measurements[] = $qty;
+    }
+  }
+
+  // Create a quantity log.
+  farm_quantity_log_create($type, $name, $timestamp, $done, $assets, $measurements);
 }

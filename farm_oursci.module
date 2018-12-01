@@ -3,3 +3,54 @@
 /**
  * Farm Our-Sci module.
  */
+
+/**
+ * Implements hook_menu().
+ */
+function farm_oursci_menu() {
+  $items = array();
+  $items['api/oursci'] = array(
+    'page callback' => 'farm_oursci_api_callback',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Our-sci API callback.
+ */
+function farm_oursci_api_callback() {
+
+  // If this is a POST request, process the data.
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Pull the data from the request.
+    $data = drupal_json_decode(file_get_contents("php://input"));
+
+    // If data was posted, process it.
+    if (!empty($data)) {
+      farm_oursci_process_data($data);
+    }
+  }
+
+  // Return 200 code, always.
+  return MENU_FOUND;
+}
+
+/**
+ * Process data.
+ */
+function farm_oursci_process_data($data) {
+
+  // Create a log and dump the JSON into the body.
+  $type = 'farm_observation';
+  $name = 'Test Our Sci Observation';
+  $log = farm_quantity_log_create($type, $name);
+  $log_wrapper = entity_metadata_wrapper('log', $log);
+  $log_wrapper->field_farm_notes = array(
+    'value' => drupal_json_encode($data),
+    'format' => 'farm_format',
+  );
+  $log_wrapper->save();
+}

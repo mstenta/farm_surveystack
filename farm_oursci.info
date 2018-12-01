@@ -1,0 +1,4 @@
+name = Farm Our-Sci
+description = Integrates farmOS with Our-Sci.net.
+core = 7.x
+package = farmOS Contrib

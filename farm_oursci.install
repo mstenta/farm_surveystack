@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Farm Our-Sci install.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function farm_oursci_uninstall() {
+  variable_del('farm_oursci_dashboard');
+}

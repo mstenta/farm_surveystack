@@ -9,12 +9,63 @@
  */
 function farm_oursci_menu() {
   $items = array();
+
+  // Produce safety dashboard.
+  $items['farm/oursci'] = array(
+    'title' => 'Our-Sci Dashboard',
+    'page callback' => 'farm_oursci_dashboard',
+    'access arguments' => array('access farm dashboard'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['farm/oursci/dashboard'] = array(
+    'title' => 'Dashboard',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  // Our-sci settings page.
+  $items['farm/oursci/settings'] = array(
+    'title' => 'Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('farm_oursci_settings_form'),
+    'access arguments' => array('access farm dashboard'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  // API endpoint.
   $items['api/oursci'] = array(
     'page callback' => 'farm_oursci_api_callback',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
+
   return $items;
+}
+
+/**
+ * Our-sci dashboard callback.
+ */
+function farm_oursci_dashboard() {
+  $dashboard = variable_get('farm_oursci_dashboard', '');
+  if (empty($dashboard)) {
+    return '<p>Specify the dashboard you want in the <a href="/farm/oursci/settings">Our-Sci settings</a>.</p>';
+  }
+  else {
+    return '<div class="embed-responsive embed-responsive-16by9 col-6">
+      <iframe class="embed-responsive-item" src="https://app.our-sci.net/dashboard/' . $dashboard . '"></iframe>
+    </div>';
+  }
+}
+
+/**
+ * Our-sci settings form.
+ */
+function farm_oursci_settings_form($form, &$form_state) {
+  $form['farm_oursci_dashboard'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Our-Sci Dashboard'),
+    '#default_value' => variable_get('farm_oursci_dashboard', ''),
+  );
+  return system_settings_form($form);
 }
 
 /**

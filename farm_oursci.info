@@ -1,5 +1,4 @@
 name = Farm Our-Sci
-description = Integrates farmOS with Our-Sci.net.
+description = farmOS Our-Sci integration module.
 core = 7.x
 package = farmOS Contrib
-dependencies[] = farm_quantity

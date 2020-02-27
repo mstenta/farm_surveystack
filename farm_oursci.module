@@ -3,3 +3,23 @@
 /**
  * Farm Our-Sci module.
  */
+
+/**
+ * Implements hook_farm_api_oauth2_client().
+ */
+function farm_oursci_farm_api_oauth2_client() {
+  $clients = array();
+
+  // Define the Our-Sci Aggregator OAuth2 client.
+  $aggregator_redirect_uris = array(
+    'https://oursci.farmos.group/register-farm',
+    'https://oursci.farmos.group/authorize-farm',
+  );
+  $clients['oursci_aggregator'] = array(
+    'label' => 'Our-Sci Aggregator',
+    'client_key' => 'oursci_aggregator',
+    'redirect_uri' => implode("\n", $aggregator_redirect_uris),
+  );
+
+  return $clients;
+}

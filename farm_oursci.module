@@ -23,3 +23,27 @@ function farm_oursci_farm_api_oauth2_client() {
 
   return $clients;
 }
+
+/**
+ * Implements hook_farm_flags().
+ */
+function farm_oursci_farm_flags() {
+  return array(
+    'usda_organic' => t('USDA Organic'),
+    'non_gmo' => t('Non-GMO'),
+  );
+}
+
+/**
+ * Implements hook_farm_flags_classes_alter().
+ */
+function farm_oursci_farm_flags_classes_alter($flag, &$classes) {
+  switch ($flag) {
+    case 'usda_organic':
+      $classes[] = 'btn-success';
+      break;
+    case 'non_gmo':
+      $classes[] = 'btn-info';
+      break;
+  }
+}

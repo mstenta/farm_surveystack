@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * farmOS Our-Sci install functions.
+ */
+
+use Drupal\consumers\Entity\Consumer;
+
+/**
+ * Implements hook_install().
+ */
+function farm_oursci_install() {
+
+  // Create an "Our-Sci Aggregator" consumer.
+  $consumer = Consumer::create([
+    'label' => 'Our-Sci Aggregator',
+    'client_id' => 'oursci_aggregator',
+    'owner_id' => '',
+    'secret' => '',
+    'confidential' => FALSE,
+    'third_party' => FALSE,
+    'grant_user_access' => TRUE,
+    'limit_user_access' => TRUE,
+    'limit_requested_access' => FALSE,
+    'redirect' => 'https://oursci.farmos.group/authorize-farm',
+  ]);
+  $consumer->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function farm_oursci_uninstall() {
+
+  // Delete the Our-Sci Aggregator consumer.
+  $consumers = \Drupal::entityTypeManager()->getStorage('consumer')
+    ->loadByProperties(['client_id' => 'oursci_aggregator']);
+  if (!empty($consumers)) {
+    $consumer = reset($consumers);
+    $consumer->delete();
+  }
+}

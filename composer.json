@@ -1,0 +1,13 @@
+{
+  "name": "oursci/farm_oursci",
+  "description": "farmOS Our-Sci integration module.",
+  "type": "drupal-module",
+  "homepage": "https://www.our-sci.net",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+      {
+          "name": "Michael Stenta",
+          "email": "mike@farmier.com"
+      }
+  ]
+}

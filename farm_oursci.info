@@ -2,3 +2,5 @@ name = Farm Our-Sci
 description = farmOS Our-Sci integration module.
 core = 7.x
 package = farmOS Contrib
+dependencies[] = farm_biodynamic
+dependencies[] = farm_organic

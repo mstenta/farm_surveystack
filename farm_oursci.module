@@ -29,6 +29,11 @@ function farm_oursci_farm_api_oauth2_client() {
  */
 function farm_oursci_farm_flags() {
   return array(
+    'greenhouse' => t('Greenhouse'),
+    'hydroponic' => t('Hydroponic'),
     'non_gmo' => t('Non-GMO'),
+    'organic_non_cert' => t('Organic (Not Certified)'),
+    'regenerative' => t('Regenerative'),
+    'transitionalregen' => t('Transitional Regenerative'),
   );
 }

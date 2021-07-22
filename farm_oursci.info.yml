@@ -5,3 +5,5 @@ package: farmOS Contrib
 core_version_requirement: ^9
 dependencies:
   - farm:farm_api
+  - farm_biodynamic:farm_biodynamic
+  - farm_organic:farm_organic

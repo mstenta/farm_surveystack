@@ -32,14 +32,3 @@ function farm_oursci_farm_flags() {
     'non_gmo' => t('Non-GMO'),
   );
 }
-
-/**
- * Implements hook_farm_flags_classes_alter().
- */
-function farm_oursci_farm_flags_classes_alter($flag, &$classes) {
-  switch ($flag) {
-    case 'non_gmo':
-      $classes[] = 'btn-info';
-      break;
-  }
-}

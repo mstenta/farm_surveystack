@@ -10,16 +10,10 @@
  */
 function farm_oursci_update_7000(&$sandbox) {
 
-  // Enable the farm_organic and farm_biodynamic modules, if they aren't
-  // already.
-  $modules = array(
-    'farm_organic',
-    'farm_biodynamic',
-  );
-  foreach ($modules as $module) {
-    if (!module_exists($module)) {
-      module_enable(array($module));
-    }
+  // Enable the farm_biodynamic module.
+  $module = 'farm_biodynamic';
+  if (!module_exists($module)) {
+    module_enable(array($module));
   }
 
   // Convert usda_organic flags to organic.

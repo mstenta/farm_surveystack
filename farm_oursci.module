@@ -36,6 +36,6 @@ function farm_oursci_farm_flags() {
     'organic_non_cert' => t('Organic (Not Certified)'),
     'transitioning_organic' => t('Transitioning to organic'),
     'regenerative' => t('Regenerative'),
-    'transitionalregen' => t('Transitional Regenerative'),
+    'transitioning_regen' => t('Transitioning to regenerative'),
   );
 }

@@ -4,5 +4,5 @@ dependencies:
   enforced:
     module:
       - farm_oursci
-id: transitionalregen
-label: Transitional Regenerative
+id: transitioning_regen
+label: Transitional to regenerative

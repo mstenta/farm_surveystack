@@ -6,7 +6,7 @@
  */
 
 /**
- * Implements hook_update_N().
+ * Install farm_biodynamic and convert usda_organic flag to organic.
  */
 function farm_oursci_update_7000(&$sandbox) {
 

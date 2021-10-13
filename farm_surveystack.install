@@ -11,10 +11,10 @@ use Drupal\consumers\Entity\Consumer;
  */
 function farm_surveystack_install() {
 
-  // Create an "Our-Sci Aggregator" consumer.
+  // Create an "SurveyStack.io Aggregator" consumer.
   $consumer = Consumer::create([
-    'label' => 'Our-Sci Aggregator',
-    'client_id' => 'oursci_aggregator',
+    'label' => 'SurveyStack.io Aggregator',
+    'client_id' => 'surveystack_aggregator',
     'owner_id' => '',
     'secret' => '',
     'confidential' => FALSE,
@@ -22,7 +22,7 @@ function farm_surveystack_install() {
     'grant_user_access' => TRUE,
     'limit_user_access' => TRUE,
     'limit_requested_access' => FALSE,
-    'redirect' => 'https://oursci.farmos.group/authorize-farm',
+    'redirect' => 'https://surveystack.farmos.group/authorize-farm',
   ]);
   $consumer->save();
 }
@@ -32,9 +32,9 @@ function farm_surveystack_install() {
  */
 function farm_surveystack_uninstall() {
 
-  // Delete the Our-Sci Aggregator consumer.
+  // Delete the SurveyStack Aggregator consumer.
   $consumers = \Drupal::entityTypeManager()->getStorage('consumer')
-    ->loadByProperties(['client_id' => 'oursci_aggregator']);
+    ->loadByProperties(['client_id' => 'surveystack_aggregator']);
   if (!empty($consumers)) {
     $consumer = reset($consumers);
     $consumer->delete();

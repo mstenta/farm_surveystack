@@ -35,4 +35,8 @@ function farm_oursci_update_7001(&$sandbox) {
   // Convert transitioning_organic to transitionalorganic.
   db_query("UPDATE {field_data_field_farm_flags} SET field_farm_flags_value = 'transitionalorganic' WHERE field_farm_flags_value = 'transitioning_organic'");
   db_query("UPDATE {field_revision_field_farm_flags} SET field_farm_flags_value = 'transitionalorganic' WHERE field_farm_flags_value = 'transitioning_organic'");
+
+  // Convert transitioning_regen to transitionalregen.
+  db_query("UPDATE {field_data_field_farm_flags} SET field_farm_flags_value = 'transitionalregen' WHERE field_farm_flags_value = 'transitioning_regen'");
+  db_query("UPDATE {field_revision_field_farm_flags} SET field_farm_flags_value = 'transitionalregen' WHERE field_farm_flags_value = 'transitioning_regen'");
 }

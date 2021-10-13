@@ -1,5 +1,5 @@
-name: farmOS Our-Sci
-description: farmOS Our-Sci integration module.
+name: farmOS SurveyStack
+description: farmOS SurveyStack.io integration module.
 type: module
 package: farmOS Contrib
 core_version_requirement: ^9

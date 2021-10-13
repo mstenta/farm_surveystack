@@ -1,7 +1,7 @@
 <?php
 
 /**
- * farmOS Our-Sci install functions.
+ * farmOS SurveyStack install functions.
  */
 
 use Drupal\consumers\Entity\Consumer;
@@ -9,7 +9,7 @@ use Drupal\consumers\Entity\Consumer;
 /**
  * Implements hook_install().
  */
-function farm_oursci_install() {
+function farm_surveystack_install() {
 
   // Create an "Our-Sci Aggregator" consumer.
   $consumer = Consumer::create([
@@ -30,7 +30,7 @@ function farm_oursci_install() {
 /**
  * Implements hook_uninstall().
  */
-function farm_oursci_uninstall() {
+function farm_surveystack_uninstall() {
 
   // Delete the Our-Sci Aggregator consumer.
   $consumers = \Drupal::entityTypeManager()->getStorage('consumer')

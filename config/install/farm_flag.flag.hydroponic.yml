@@ -3,6 +3,6 @@ status: true
 dependencies:
   enforced:
     module:
-      - farm_oursci
+      - farm_surveystack
 id: hydroponic
 label: Hydroponic

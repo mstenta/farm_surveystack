@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  enforced:
-    module:
-      - farm_surveystack
-id: transitioning_organic
-label: Transitioning to organic

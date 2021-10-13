@@ -32,9 +32,7 @@ function farm_oursci_farm_flags() {
     'greenhouse' => t('Greenhouse'),
     'hydroponic' => t('Hydroponic'),
     'non_gmo' => t('Non-GMO'),
-    'organic' => t('Organic (Certified)'),
     'organic_not_cert' => t('Organic (Not Certified)'),
-    'transitioning_organic' => t('Transitioning to organic'),
     'regenerative' => t('Regenerative'),
     'transitioning_regen' => t('Transitioning to regenerative'),
   );

@@ -4,5 +4,5 @@ dependencies:
   enforced:
     module:
       - farm_surveystack
-id: transitioning_regen
+id: transitionalregen
 label: Transitional to regenerative

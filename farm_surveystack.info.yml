@@ -1,7 +1,7 @@
 name: farmOS SurveyStack
 description: farmOS SurveyStack.io integration module.
 type: module
-package: farmOS Contrib
+package: farmOS Integrations
 core_version_requirement: ^9
 dependencies:
   - farm:farm_api

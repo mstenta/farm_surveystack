@@ -19,3 +19,12 @@ function farm_surveystack_post_update_surveystack_id(&$sandbox) {
     \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition($field_id, $entity_type, 'farm_surveystack', $field_definition);
   }
 }
+
+/**
+ * Install Common profile module.
+ */
+function farm_surveystack_post_update_enable_profile_common(&$sandbox = NULL) {
+  if (!\Drupal::service('module_handler')->moduleExists('farm_profile_common')) {
+    \Drupal::service('module_installer')->install(['farm_profile_common']);
+  }
+}

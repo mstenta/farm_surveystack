@@ -1,13 +1,13 @@
 {
-  "name": "oursci/farm_surveystack",
-  "description": "farmOS SurveyStack.io integration module.",
-  "type": "drupal-module",
-  "homepage": "https://app.surveystack.io",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-      {
-          "name": "Michael Stenta",
-          "email": "mike@farmier.com"
-      }
-  ]
+    "name": "oursci/farm_surveystack",
+    "description": "farmOS SurveyStack.io integration module.",
+    "type": "drupal-module",
+    "homepage": "https://app.surveystack.io",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Michael Stenta",
+            "email": "mike@farmier.com"
+        }
+    ]
 }

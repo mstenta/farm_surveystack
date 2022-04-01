@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains farm_surveystack.module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function farm_surveystack_entity_base_field_info(EntityTypeInterface $entity_type) {
+
+  // Add hidden surveystack_id field to assets and logs.
+  if (in_array($entity_type->id(),  ['asset', 'log'])) {
+    return [
+      'surveystack_id' => \Drupal::service('farm_field.factory')->baseFieldDefinition([
+        'type' => 'string',
+        'label' => t('Surveystack ID'),
+        'hidden' => TRUE,
+      ]),
+    ];
+  }
+}

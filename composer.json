@@ -19,6 +19,6 @@
     "require": {
         "drupal/farm_biodynamic": "2.x-dev",
         "drupal/farm_organic": "2.x-dev",
-        "mstenta/farm_profile_common": "2.x-dev"
+        "mstenta/farm_profile_common": "1.0.0"
     }
 }

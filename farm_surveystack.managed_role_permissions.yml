@@ -1,0 +1,6 @@
+farm_surveystack:
+  config_permissions:
+    - view profile
+    - create profile
+    - edit profile
+    - delete profile

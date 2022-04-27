@@ -40,3 +40,29 @@ function farm_surveystack_post_update_surveystack_id_profile(&$sandbox = NULL) {
   ]);
   \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('surveystack_id', 'profile', 'farm_surveystack', $field_definition);
 }
+
+/**
+ * Install SurveyStack Conventions module.
+ */
+function farm_surveystack_post_update_enable_surveystack_convention(&$sandbox = NULL) {
+
+  // First, delete all custom flags. This is safe to do because the flag field
+  // stores the flag ID string, not a reference to the config entity itself.
+  // So once farm_surveystack_convention is installed, these will be recreated.
+  $flags = [
+    'greenhouse',
+    'hydroponic',
+    'non_gmo',
+    'organic_not_cert',
+    'regenerative',
+    'transitionalregen',
+  ];
+  foreach ($flags as $flag) {
+    \Drupal::configFactory()->getEditable('farm_flag.flag.' . $flag)->delete();
+  }
+
+  // Install farm_surveystack_convention.
+  if (!\Drupal::service('module_handler')->moduleExists('farm_surveystack_convention')) {
+    \Drupal::service('module_installer')->install(['farm_surveystack_convention']);
+  }
+}

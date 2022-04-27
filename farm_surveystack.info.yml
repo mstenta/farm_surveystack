@@ -5,18 +5,5 @@ package: farmOS Integrations
 core_version_requirement: ^9
 dependencies:
   - drupal:text
-  - farm:farm_activity
   - farm:farm_api
-  - farm:farm_flag
-  - farm:farm_harvest
-  - farm:farm_input
-  - farm:farm_lab_test
-  - farm:farm_land
-  - farm:farm_land_types
-  - farm:farm_observation
-  - farm:farm_plant
-  - farm:farm_seeding
-  - farm:farm_transplanting
-  - farm_biodynamic:farm_biodynamic
-  - farm_organic:farm_organic
   - farm_profile_common:farm_profile_common

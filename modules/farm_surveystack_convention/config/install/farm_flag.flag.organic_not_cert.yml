@@ -3,6 +3,6 @@ status: true
 dependencies:
   enforced:
     module:
-      - farm_surveystack
+      - farm_surveystack_convention
 id: organic_not_cert
 label: Organic (Not Certified)

@@ -28,3 +28,15 @@ function farm_surveystack_post_update_enable_profile_common(&$sandbox = NULL) {
     \Drupal::service('module_installer')->install(['farm_profile_common']);
   }
 }
+
+/**
+ * Add surveystack_id field to profiles.
+ */
+function farm_surveystack_post_update_surveystack_id_profile(&$sandbox = NULL) {
+  $field_definition = \Drupal::service('farm_field.factory')->baseFieldDefinition([
+    'type' => 'string',
+    'label' => t('Surveystack ID'),
+    'hidden' => TRUE,
+  ]);
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('surveystack_id', 'profile', 'farm_surveystack', $field_definition);
+}

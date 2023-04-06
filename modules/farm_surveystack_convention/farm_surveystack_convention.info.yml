@@ -15,6 +15,7 @@ dependencies:
   - farm:farm_plant
   - farm:farm_seeding
   - farm:farm_transplanting
+  - farm_asset_termination:farm_asset_termination
   - farm_biodynamic:farm_biodynamic
   - farm_organic:farm_organic
   - farm_surveystack:farm_surveystack

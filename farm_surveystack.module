@@ -24,3 +24,19 @@ function farm_surveystack_entity_base_field_info(EntityTypeInterface $entity_typ
 
   return $fields;
 }
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function farm_surveystack_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+
+  // Allow material quantities to reference multiple material types.
+  // @todo Remove when https://www.drupal.org/project/farm/issues/3357679 is merged.
+  if ($entity_type->id() == 'quantity' && $bundle == 'material') {
+    /** @var \Drupal\entity\BundleFieldDefinition[] $fields */
+    $cardinality = $fields['material_type']->getCardinality();
+    if ($cardinality === 1) {
+      $fields['material_type']->setCardinality(-1);
+    }
+  }
+}

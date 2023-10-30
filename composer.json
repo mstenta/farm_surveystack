@@ -20,6 +20,7 @@
         "drupal/farm_asset_termination": "1.2.1",
         "drupal/farm_biodynamic": "2.x-dev",
         "drupal/farm_organic": "^2.0",
+        "farmos/farmos": "^2 || ^3",
         "mstenta/farm_profile_common": "1.1.0"
     }
 }

@@ -66,3 +66,24 @@ function farm_surveystack_post_update_enable_surveystack_convention(&$sandbox = 
     \Drupal::service('module_installer')->install(['farm_surveystack_convention']);
   }
 }
+
+/**
+ * Update SurveyStack OAuth client for Simple OAuth v6.
+ */
+function farm_surveystack_post_update_simple_oauth_v6(&$sandbox = NULL) {
+
+  // Enable the simple_oauth_password_grant module.
+  if (!\Drupal::service('module_handler')->moduleExists('simple_oauth_password_grant')) {
+    \Drupal::service('module_installer')->install(['simple_oauth_password_grant']);
+  }
+
+  // Update existing surveystack_aggregator consumer.
+  $consumers = \Drupal::entityTypeManager()->getStorage('consumer')
+    ->loadByProperties(['client_id' => 'surveystack_aggregator']);
+  if (!empty($consumers)) {
+    /** @var \Drupal\consumers\Entity\ConsumerInterface $consumer */
+    $consumer = reset($consumers);
+    $consumer->set('grant_types', ['authorization_code', 'refresh_token', 'password']);
+    $consumer->save();
+  }
+}

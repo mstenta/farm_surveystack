@@ -15,13 +15,16 @@ function farm_surveystack_install() {
   $consumer = Consumer::create([
     'label' => 'SurveyStack.io Aggregator',
     'client_id' => 'surveystack_aggregator',
-    'owner_id' => '',
-    'secret' => '',
+    'grant_types' => [
+      'authorization_code',
+      'refresh_token',
+      'password',
+    ],
+    'scopes' => ['farm_manager'],
+    'access_token_expiration' => 3600,
+    'secret' => NULL,
     'confidential' => FALSE,
     'third_party' => FALSE,
-    'grant_user_access' => TRUE,
-    'limit_user_access' => TRUE,
-    'limit_requested_access' => FALSE,
     'redirect' => 'https://surveystack.farmos.group/authorize-farm',
   ]);
   $consumer->save();

@@ -2,7 +2,7 @@ name: farmOS SurveyStack Conventions
 description: Adds and enforces certain SurveyStack conventions.
 type: module
 package: farmOS Integrations
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - farm:farm_activity
   - farm:farm_flag

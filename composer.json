@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "drupal/farm_asset_termination": "1.2.1",
+        "drupal/farm_asset_termination": "1.2.2",
         "drupal/farm_biodynamic": "^2.1",
         "drupal/farm_organic": "^2.1",
         "farmos/farmos": "^2 || ^3",

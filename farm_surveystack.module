@@ -13,8 +13,8 @@ use Drupal\Core\Entity\EntityTypeInterface;
 function farm_surveystack_entity_base_field_info(EntityTypeInterface $entity_type) {
   $fields = [];
 
-  // Add hidden surveystack_id field to assets, logs, and profiles.
-  if (in_array($entity_type->id(),  ['asset', 'log', 'profile'])) {
+  // Add hidden surveystack_id field to assets and logs.
+  if (in_array($entity_type->id(),  ['asset', 'log'])) {
     $fields['surveystack_id'] = \Drupal::service('farm_field.factory')->baseFieldDefinition([
       'type' => 'string',
       'label' => t('Surveystack ID'),

@@ -6,5 +6,4 @@ core_version_requirement: ^10
 dependencies:
   - drupal:text
   - farm:farm_api
-  - farm_profile_common:farm_profile_common
   - simple_oauth_password_grant:simple_oauth_password_grant

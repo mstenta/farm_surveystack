@@ -6,19 +6,11 @@
  */
 
 /**
- * Install Asset Termination module.
+ * Implements hook_removed_post_updates().
  */
-function farm_surveystack_convention_post_update_enable_termination(&$sandbox = NULL) {
-  if (!\Drupal::service('module_handler')->moduleExists('farm_asset_termination')) {
-    \Drupal::service('module_installer')->install(['farm_asset_termination']);
-  }
-}
-
-/**
- * Install Convention module.
- */
-function farm_surveystack_convention_post_update_enable_convention(&$sandbox = NULL) {
-  if (!\Drupal::service('module_handler')->moduleExists('farm_convention')) {
-    \Drupal::service('module_installer')->install(['farm_convention']);
-  }
+function farm_log_removed_post_updates() {
+  return [
+    'farm_surveystack_convention_post_update_enable_termination' => '3.x',
+    'farm_surveystack_convention_post_update_enable_convention' => '3.x',
+  ];
 }

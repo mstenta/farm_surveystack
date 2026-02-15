@@ -17,10 +17,10 @@
         }
     ],
     "require": {
-        "drupal/farm_asset_termination": "1.2.2",
-        "drupal/farm_biodynamic": "^2.1",
-        "drupal/farm_organic": "^2.1",
-        "farmos/farmos": "^3",
-        "mstenta/farm_convention": "^1.0"
+        "drupal/farm_asset_termination": "^2.0",
+        "drupal/farm_biodynamic": "^2.2",
+        "drupal/farm_organic": "^3.0",
+        "farmos/farmos": "^4.0",
+        "mstenta/farm_convention": "^1.1"
     }
 }
